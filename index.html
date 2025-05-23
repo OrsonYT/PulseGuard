@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>PulseGuard - Surveillance Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span class="logo"></span>
+            <span class="title">PulseGuard</span>
+        </div>
+        <button id="settingsBtn" class="settings-btn" title="Paramètres">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                <path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7Z" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M19.938 12.438c-.084-.483-.186-.934-.305-1.374l2.165-1.69a1 1 0 0 0 .24-1.29l-2.05-3.536a1 1 0 0 0-1.225-.439l-2.56 1.028a7.988 7.988 0 0 0-1.19-.69l-.388-2.67a1 1 0 0 0-.99-.828h-4.02a1 1 0 0 0-.99.828l-.388 2.67a7.988 7.988 0 0 0-1.19.69l-2.56-1.028a1 1 0 0 0-1.225.439l-2.05 3.536a1 1 0 0 0 .24 1.29l2.165 1.69c-.119.44-.221.891-.305 1.374l-2.67.388a1 1 0 0 0 0 1.94l2.67.388c.084.483.186.934.305 1.374l-2.165 1.69a1 1 0 0 0-.24 1.29l2.05 3.536a1 1 0 0 0 1.225.439l2.56-1.028c.398.287.811.545 1.19.69l.388 2.67a1 1 0 0 0 .99.828h4.02a1 1 0 0 0 .99-.828l.388-2.67c.38-.145.792-.403 1.19-.69l2.56 1.028a1 1 0 0 0 1.225-.439l2.05-3.536a1 1 0 0 0-.24-1.29l-2.165-1.69c.119-.44.221-.891.305-1.374l2.67-.388a1 1 0 0 0 0-1.94l-2.67-.388Z" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </button>
+    </header>
+    <main>
+        <form id="addSiteForm">
+            <input type="url" id="siteUrl" placeholder="Ajouter une URL (ex : https://monsite.com)" required autocomplete="off">
+            <button type="submit" class="add-btn" title="Ajouter">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </form>
+        <div id="sitesList"></div>
+        <audio id="alertSound" src="alert.mp3" preload="auto"></audio>
+    </main>
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeSettings">&times;</span>
+            <h2>Paramètres</h2>
+            <label style="margin-bottom:1.2em;">
+                <input type="checkbox" id="soundAlert" checked>
+                Alerte sonore si un site est <span style="color:#e74c3c;font-weight:bold;">DOWN</span>
+            </label>
+            <div class="param-section">
+                <label for="refreshSlider" style="font-size:1.09em;font-weight:500;">
+                    Fréquence de rafraîchissement
+                </label>
+                <div class="slider-wrap">
+                    <input type="range" min="5" max="300" value="60" id="refreshSlider" step="1">
+                    <span id="refreshValue">1 minute</span>
+                </div>
+            </div>
+            <div class="param-tip">D'autres options arrivent bientôt !</div>
+        </div>
+    </div>
+    <footer>
+        <span>&copy; 2025 PulseGuard &bull; by Orson 🚀</span>
+    </footer>
+    <script src="main.js"></script>
+</body>
+</html>
